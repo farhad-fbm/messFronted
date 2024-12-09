@@ -43,7 +43,7 @@ const MealChecker = () => {
       );
 
       // Handle success
-      console.log('Meal updated successfully:', response.data);
+      alert('Meal updated successfully:', response.data);
     } catch (error) {
       // Handle error
       console.error('Error updating meal:', error);

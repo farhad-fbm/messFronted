@@ -1,5 +1,6 @@
 
 // eslint-disable-next-line no-unused-vars
+import { Helmet } from "react-helmet";
 import DailyMeals from "../meals/DailyMeals";
 import GetRecipe from "../recipes/GetRecipe";
 import { DayCard } from "./DayCard";
@@ -11,6 +12,7 @@ export const Home = () => {
 
   return (
     <div className="pt-2">
+       <Helmet><title>Mess | Home</title></Helmet>
       <HomeClock />
       {/* <div className="lg:grid grid-cols-[1fr_1.5fr] gap-1 px-1 pt-8 h-96" > */}
       <div>

@@ -1,20 +1,11 @@
 
 
-
-
-
-
-
-
-
-
-
-
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios';
 import { backURL } from '../../lib/constants';
+import { Helmet } from 'react-helmet';
 
 const AddRecipe = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -72,6 +63,7 @@ const AddRecipe = () => {
 
   return (
     <div className="max-w-3xl mx-auto p-6 bg-gray-100 rounded-lg shadow-lg">
+       <Helmet><title>Mess | AddRecipe</title></Helmet>
       <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6">Add Daily Recipes</h2>
       <div className="mb-4">
         <label htmlFor="date" className="block text-sm font-medium text-gray-700">Select Date</label>

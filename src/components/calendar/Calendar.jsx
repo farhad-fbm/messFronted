@@ -3,6 +3,7 @@ import { useContext, useState } from 'react';
 import { bazarDate, userMess } from './../../lib/constants';
 import { Modal } from './modal/Modal';
 import { DateContext } from '../../ContextProviders/DateContextProvider';
+import { Helmet } from 'react-helmet';
 
 const getDaysInMonth = (year, month) => {
   return new Array(new Date(year, month, 0).getDate())
@@ -53,29 +54,30 @@ export const Calendar = () => {
   const handleDayClick = (dateStr) => {
     const now = new Date();
     const clickedDate = new Date(dateStr);
-
+  
     const isToday = clickedDate.toDateString() === now.toDateString();
     const isFutureDate = clickedDate > now;
-
-    // Only open the modal if it's before 6 PM and the clicked day is after today
-    if ((isToday - 1 && now.getHours() < 18) || isFutureDate) {
+  
+    // Check conditions for opening the modal
+    if ( isFutureDate) {
       setSelectedDate(dateStr);
-      setCurrentDate(dateStr.split('-')[2]);
-      console.log(dateStr);
-      
-      openModal();
+      setCurrentDate(dateStr.split('-')[2]); // Update the current date
+      console.log("Selected Date:", dateStr);
+      openModal(); // Open the modal
     } else {
-      // Set the alert message and open the alert modal
-      setAlertMessage('Modal can only be opened before 6 PM for future dates');
+      // Set alert message and open the alert modal
+      setAlertMessage('Modal can only be opened before 6 PM for today or on future dates.');
       setIsAlertOpen(true);
     }
   };
+  
   const closeAlertModal = () => {
     setIsAlertOpen(false);
   };
 
   return (
     <div className="">
+      <Helmet><title>Mess | Calendar</title></Helmet>
 
       {/* <div className=""><HomeClock /></div> */}
       <div className="p-4 mt-10 max-w-2xl mx-auto">

@@ -1,6 +1,11 @@
+import { Helmet } from "react-helmet";
+
 const UnauthorizedPage = () => {
   return (
     <div className="flex items-center justify-center h-[85vh] bg-gray-100">
+       <Helmet>
+        <title>Mess | Unauthorized</title>
+      </Helmet>
       <div className="text-center bg-white p-8 rounded-lg shadow-lg">
         <h1 className="text-3xl font-bold text-red-500">Unauthorized</h1>
         <p className="text-gray-700">

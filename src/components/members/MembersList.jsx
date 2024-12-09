@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { backURL } from '../../lib/constants';
+import { Helmet } from 'react-helmet';
 
 // const backURL = 'http://localhost:5000/api'; // Replace with your backend URL
 
@@ -26,23 +27,6 @@ const MembersList = () => {
     role: ''
   });
 
-  // API call to fetch members
-  // const fetchMembers = async () => {
-  //   setLoading(true);
-  //   setError('');
-  //   try {
-  //     const response = await axios.get(`${backURL}/members`, {
-  //       params: { page, limit },
-  //     });
-  //     setMembers(response.data.members);
-  //     setTotal(response.data.total);
-  //   } catch (error) {
-  //     setError(error.response?.data?.message || 'Failed to fetch members.');
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-  // API call to fetch members
   const fetchMembers = async () => {
     setLoading(true);
     setError('');
@@ -154,6 +138,7 @@ const MembersList = () => {
 
   return (
     <div className="w-96 mx-auto mt-20">
+       <Helmet><title>Mess | Memebers</title></Helmet>
       <div className="flex justify-between">
         <h2 className="text-center p-4 font-extrabold text-xl">Members List</h2>
         <Link to="/addMember">

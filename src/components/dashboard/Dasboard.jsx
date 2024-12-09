@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../../ContextProviders/AuthContextProvider";
 import { backURL } from "../../lib/constants";
+import { Helmet } from "react-helmet";
 
 // const MonthlyMealInfo = () => {
 export const Dasboard = () => {
@@ -58,6 +59,7 @@ export const Dasboard = () => {
 
   return (
     <div className="p-4 max-w-3xl mx-auto">
+       <Helmet><title>Mess | Dashboard</title></Helmet>
       <div className="flex justify-between items-center mb-4">
         <button
           onClick={handlePrevMonth}

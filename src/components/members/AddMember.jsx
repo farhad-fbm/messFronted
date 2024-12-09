@@ -4,6 +4,7 @@ import { RxAvatar } from "react-icons/rx";
 import { HiOutlineMail } from "react-icons/hi";
 import { CiPhone } from "react-icons/ci";
 import { IoMdKey } from "react-icons/io";
+import { Helmet } from 'react-helmet';
 
 
 
@@ -49,6 +50,7 @@ const AddMember = () => {
 
   return (
     <div className='w-96 mx-auto mt-20'>
+       <Helmet><title>Mess | AddMember</title></Helmet>
       <h2 className='text-center py-6'>Add New Member</h2>
       <form onSubmit={handleSubmit} className='space-y-3'>
         <label className="input input-bordered flex items-center gap-2">
